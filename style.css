@@ -1,0 +1,339 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+#search {
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	border-left-width: 0;
+	border-top-width: 0;
+	display: inline-block;
+	border-radius: 0 0 2px 0;
+	position: fixed;
+	background-color: white;
+    overflow: hidden;
+    z-index: 50;
+}
+
+#title {
+    width: 100%;
+    height: 75px;
+    background-color: seagreen;
+    color:  white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 75px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: normal;
+}
+
+form {
+    margin: 10px;
+}
+
+.items {
+    position: relative;
+    height: 58px;
+}
+
+.expItem {
+    width: 301px;
+    margin: 0 auto;
+}
+
+.label {
+    position: absolute;
+    top: 27px;
+    color: gray;
+    pointer-events: none;
+}
+
+.inputs, .expInput {
+	margin-bottom: 10px;
+    margin-top: 25px;
+	width: 200px;
+	height: 20px;
+	border: 0 solid black;
+    border-bottom-width: 1px;
+	/*border-radius: 2px;*/
+	text-indent: 5px;
+    z-index: 5;
+}
+
+.expInput {
+    width: 300px;
+}
+
+input:focus {
+	/*box-shadow: 0 0 4px rgba(0,0,150,0.5);*/
+    border-bottom-width: 2px;
+    border-bottom-color: seagreen;
+    outline: 0;
+}
+
+input:disabled {
+    border-bottom-style: dashed;
+    background-color: white;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.butt {
+    width: 200px;
+    height: 30px;
+    border-radius: 2px;
+    margin-top: 5px;
+    background-color: seagreen;
+    color: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    border-width: 0;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    font-size: 16px;
+}
+
+.butt:hover{
+    cursor: pointer;
+    background-color: #257247;
+}
+
+.butt:active {
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+#expungeSection {
+    position: relative;
+}
+
+#bar {
+    width: 200px;
+    height: 1px;
+    border: 0 solid black;
+    border-bottom-width: 1px;
+    margin-top: 10px;
+}
+
+#printSection {
+    position: fixed;
+    top: 470px;
+    width: 221px;
+    text-align: center;
+}
+
+#printButton, #searchButton, #clearButton, #expungeSection {
+    display: none;
+}
+
+#expungeButton {
+    margin-top: 10px;
+}
+
+#clearButton {
+    margin-top: 10px;
+    background-color: #E0E0E0;
+    color: black;
+}
+
+#clearButton:hover {
+    background-color: #d5d5d5;
+}
+
+#results {
+	display: inline-block;
+	width: 87%;
+	padding: 10px;
+	position: absolute;
+	top: 0;
+	left: 225px;
+}
+
+#resultsTitle {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+#loading {
+	width: 150px;
+	height: 150px;
+	background: url('images/loading_2a.gif') no-repeat center ;
+    background-size: contain;
+	margin: 100px auto;
+}
+
+.citations {
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+    font-size: 12px;
+    background-color: #f8f8f8;
+    position: relative;
+    /*box-shadow: 1px 1px 4px rgba(0,0,0,0.5);*/
+    /*border-radius: 2px;*/
+}
+
+.citations:hover {
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.citations>img {
+    margin: 5px 0 18px 0;
+}
+
+.citations>img:hover, .prB:hover {
+    cursor: pointer;
+}
+
+.cid {
+    /*margin: 0 0 18px 0;*/
+}
+
+.printCheck {
+    display: none;
+}
+
+.prB {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    background: url('images/printerOff.png') no-repeat center;
+    background-size: contain;
+}
+
+
+#popup {
+	display: none;
+    margin: 0 auto;
+    padding: 10px;
+	z-index: 500;
+	background-color: white;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+}
+
+#popupClose {
+    display: none;
+    position: absolute;
+    right: -10px;
+    top: -12px;
+    border-radius: 100%;
+    background-color: #7c4dff;
+    color: white;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    font-weight: bold;
+}
+
+#popupClose:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    /*top: -13px;*/
+    /*right: -9px;*/
+}
+
+#popupClose:active {
+    cursor: pointer;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    top: -11px;
+    right: -11px;
+}
+
+#popup>img {
+    margin: 10px 0;
+    height: 500px;
+}
+
+#print {
+    text-align: center;
+}
+
+#expungeConfirm {
+    display: none;
+    z-index: 500;
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+}
+
+#expungeHeader {
+    height: 50px;
+    background-color: seagreen;
+    vertical-align: middle;
+    line-height: 50px;
+    color: white;
+    position: relative;
+    font-size: 20px;
+}
+
+#expungeText {
+    margin-top: 10px;
+}
+
+.expButt {
+    margin: 10px auto 0 auto;
+    border: 0;
+    display: inline-block;
+}
+
+#expungeConfirmButton {
+    display: none;
+    background-color: #ff5850;
+}
+
+#expungeConfirmButton:hover {
+    background-color: #d94c44;
+}
+
+#screenCover {
+    z-index: 100;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+#multiPrint {
+    z-index: -1;
+}

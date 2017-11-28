@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<title>Citation Viewer</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="style.css">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.js"></script>
+
+</head>
+<body ng-app="App" ng-controller="mainCtrl">
+    <div id="cover"></div>
+	<div id="search">
+        <div id="title">
+            <h2>Citation Viewer</h2>
+        </div>
+
+		<form ng-submit="searchFn()">
+			<div class="items">
+                <p class="label">Docket Number</p>
+                <p><input ng-model="search.docketNumber" type="text" class="inputs docket"></p>
+            </div>
+            <div class="items">
+			    <p class="label">Citation Number</p>
+                <p><input ng-model="search.citationNumber" class="inputs"></p>
+            </div>
+			<!--<p>Defendant SSN: </p><p><input ng-model="search.SSN" class="inputs"></p>-->
+            <div class="items">
+			    <p class="label">Last Name</p>
+                <p><input ng-model="search.lastName" class="inputs"></p>
+            </div>
+            <div class="items">
+                <p class="label">First Name</p>
+                <p><input ng-model="search.firstName" class="inputs"></p>
+            </div>
+			<!--<p>Middle Name: </p><p><input ng-model="search.middleName" class="inputs"></p>-->
+			<!--<p>Date of Birth: </p><p><input ng-model="search.DOB" class="inputs"></p>-->
+			<!--<p>Drivers License Number: </p><p><input ng-model="search.DL" class="inputs"></p>-->
+			<p><button type="submit" id="searchButton" class="butt">Search</button></p>
+            <div id="expungeSection">
+                <div id="bar"></div>
+                <div id="expungeButton" class="butt">Expunge Case</div>
+            </div>
+
+		</form>
+	</div>
+
+    <div id="printSection">
+        <button id="printButton" class="butt">Print Selected Images</button>
+        <button id="clearButton" class="butt">Clear Selection</button>
+    </div>
+	
+	<div id="results">
+        <div id="resultsTitle">{{resultsTitle}}</div>
+		<div id="loading" ng-show="load"></div>
+		<div class="citations" ng-repeat="d in data">
+            <p class="cid">{{d[1]}}</p>
+		    <img ng-src="citations/{{d[0]}}" class="thumb">
+
+            <p>
+                <input type="checkbox" class="printCheck">
+                <div class="prB"></div>
+            </p>
+		</div>
+	</div>
+
+    <div id="multiPrint"></div>
+
+	<div id="popup">
+        <div id="popupClose">X</div>
+        <p></p>
+        <img src="#">
+        <div id="print">
+            <button id="popupPrintButton" class="butt">Print</button>
+        </div>
+    </div>
+
+    <div id="expungeConfirm">
+        <div id="expungeHeader">Confirm Expunge of Docket # <span></span></div>
+        <p id="expungeText">Enter your name to confirm expungement:</p>
+        <div class="items expItem">
+            <p class="label expLabel">Name</p>
+            <p><input ng-model="expungeName" class="expInput"></p>
+        </div>
+        <div id="expungeConfirmButton" class="butt expButt" ng-click="expunge()">Confirm</div>
+        <div id="expungeCancelButton" class="butt expButt" ng-click="expunge()">Cancel</div>
+    </div>
+
+    <div id="screenCover"></div>
+    <script src="script/printThis.js"></script>
+	<script src="app.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
